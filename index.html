@@ -1,71 +1,120 @@
-<script>
-    // Constants for pagination
-    const rowsPerPage = 50;
-    let currentPage = 1;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML PhD Trees</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-    fetch('data/phd_advisor_tree.json')
-        .then(response => response.json())
-        .then(data => {
-            const totalPages = Math.ceil(data.length / rowsPerPage);
-            const tableBody = document.querySelector('#advisorTable tbody');
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5f6368;
+            margin-top: 20px;
+        }
 
-            function renderPage(page) {
-                tableBody.innerHTML = ''; // Clear current rows
-                const start = (page - 1) * rowsPerPage;
-                const end = page * rowsPerPage;
-                const pageData = data.slice(start, end);
+        /* Table styling */
+        table { 
+            width: 90%; 
+            margin: 20px auto; 
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
 
-                pageData.forEach(row => {
-                    const tr = document.createElement('tr');
-                    const fileName = row['Senior Advisor'].replace('~', '');
-                    
-                    tr.innerHTML = `
-                        <td>${row['Senior Advisor']}</td>
-                        <td>${row['Tree Size']}</td>
-                        <td>${row['Tree Depth']}</td>
-                        <td><a href="data/visualisations/${fileName}_tree.html">View Tree</a></td>
-                    `;
-                    
-                    tableBody.appendChild(tr);
-                });
+        th, td { 
+            padding: 12px 20px; 
+            text-align: left; 
+            font-size: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Link styles */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                margin: 10px 0;
             }
 
-            function createPaginationControls() {
-                const paginationContainer = document.createElement('div');
-                paginationContainer.style.textAlign = 'center';
-                paginationContainer.style.marginTop = '10px';
+            h1 {
+                font-size: 2rem;
+            }
 
-                for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement('button');
-                    button.textContent = i;
-                    button.style.margin = '0 5px';
-                    button.style.padding = '5px 10px';
-                    button.style.cursor = 'pointer';
-
-                    if (i === currentPage) {
-                        button.style.backgroundColor = '#4CAF50';
-                        button.style.color = 'white';
-                        button.disabled = true;
-                    }
-
-                    button.addEventListener('click', () => {
-                        currentPage = i;
-                        renderPage(currentPage);
-                        document.querySelector('.pagination-controls').remove();
-                        createPaginationControls();
+            td, th {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ML PhD Advisor Trees</h1>
+    <table id="advisorTable">
+        <thead>
+            <tr>
+                <th>Senior Advisor</th>
+                <th>Tree Size</th>
+                <th>Tree Depth</th>
+                <th>Visualization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                // Fetch and populate JSON data
+                fetch('data/phd_advisor_tree.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tableBody = document.querySelector('#advisorTable tbody');
+                        
+                        // Loop through and append all rows
+                        data.forEach(row => {
+                            const tr = document.createElement('tr');
+                            
+                            // Replace '~' with '' in the 'Senior Advisor' file path
+                            const fileName = row['Senior Advisor'].replace(/~/g, '');
+                            
+                            tr.innerHTML = `
+                                <td>${row['Senior Advisor']}</td>
+                                <td>${row['Tree Size']}</td>
+                                <td>${row['Tree Depth']}</td>
+                                <td><a href="data/visualisations/${fileName}_tree.html">View Tree</a></td>
+                            `;
+                            
+                            tableBody.appendChild(tr);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading the JSON file:', error);
                     });
-
-                    paginationContainer.appendChild(button);
-                }
-
-                paginationContainer.className = 'pagination-controls';
-                document.querySelector('.container').appendChild(paginationContainer);
-            }
-
-            renderPage(currentPage);
-            createPaginationControls();
-        })
-        .catch(error => {
-            console.error('Error loading the JSON file:', error);
-        });
-</script>
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>
