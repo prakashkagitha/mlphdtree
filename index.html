@@ -2,56 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhD Advisor Research Tree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML PhD Trees</title>
     <style>
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #5f6368;
+            margin-bottom: 20px;
+        }
+
+        /* Table styling */
+        table { 
+            width: 80%; 
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         th, td { 
-            border: 1px solid #ddd; 
-            padding: 8px; 
+            padding: 12px 20px; 
             text-align: left; 
+            font-size: 1rem;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Hover effect for table rows */
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Link styles */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Centering the table and page content */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            td, th {
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>PhD Advisor Research Tree</h1>
-    <table id="advisorTable">
-        <thead>
-            <tr>
-                <th>Senior Advisor</th>
-                <th>Tree Size</th>
-                <th>Tree Depth</th>
-                <th>Visualization</th>
-            </tr>
-        </thead>
-        <tbody>
-            <script>
-                // Fetch and populate JSON data
-                fetch('data/phd_advisor_tree.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const tableBody = document.querySelector('#advisorTable tbody');
-                        
-                        data.forEach(row => {
-                            const tr = document.createElement('tr');
+    <div class="container">
+        <h1>PhD Advisor Research Tree</h1>
+        <table id="advisorTable">
+            <thead>
+                <tr>
+                    <th>Senior Advisor</th>
+                    <th>Tree Size</th>
+                    <th>Tree Depth</th>
+                    <th>Visualization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <script>
+                    // Fetch and populate JSON data
+                    fetch('data/phd_advisor_tree.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const tableBody = document.querySelector('#advisorTable tbody');
                             
-                            tr.innerHTML = `
-                                <td>${row['Senior Advisor']}</td>
-                                <td>${row['Tree Size']}</td>
-                                <td>${row['Tree Depth']}</td>
-                                <td><a href="data/visualisations/${row['Senior Advisor']}_tree.html">View Tree</a></td>
-                            `;
-                            
-                            tableBody.appendChild(tr);
+                            data.forEach(row => {
+                                const tr = document.createElement('tr');
+                                
+                                // Replacing '~' with '' in the 'Senior Advisor' name
+                                const fileName = row['Senior Advisor'].replace('~', '');
+                                
+                                tr.innerHTML = `
+                                    <td>${row['Senior Advisor']}</td>
+                                    <td>${row['Tree Size']}</td>
+                                    <td>${row['Tree Depth']}</td>
+                                    <td><a href="data/visualisations/${fileName}_tree.html">View Tree</a></td>
+                                `;
+                                
+                                tableBody.appendChild(tr);
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error loading the JSON file:', error);
                         });
-                    })
-                    .catch(error => {
-                        console.error('Error loading the JSON file:', error);
-                    });
-            </script>
-        </tbody>
-    </table>
+                </script>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
+
