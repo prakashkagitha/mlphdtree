@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "~Mahyar_Najibi1", "label": "~Mahyar_Najibi1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yizhe_Zhu2", "label": "~Yizhe_Zhu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Larry_S._Davis1", "label": "~Larry_S._Davis1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Minsoo_Kang1", "label": "~Minsoo_Kang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Junfeng_Guo2", "label": "~Junfeng_Guo2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiyang_Dai2", "label": "~Xiyang_Dai2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Donghyeon_Kwon1", "label": "~Donghyeon_Kwon1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Paul_Hongsuck_Seo1", "label": "~Paul_Hongsuck_Seo1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bingchen_Liu2", "label": "~Bingchen_Liu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yaser_Yacoob1", "label": "~Yaser_Yacoob1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Vinoj_Jayasundara1", "label": "~Vinoj_Jayasundara1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ruichi_Yu2", "label": "~Ruichi_Yu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jin_Young_Choi2", "label": "~Jin_Young_Choi2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dahyun_Kim1", "label": "~Dahyun_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Nayeong_Kim1", "label": "~Nayeong_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Suha_Kwak3", "label": "~Suha_Kwak3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sohyun_Lee1", "label": "~Sohyun_Lee1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zuxuan_Wu1", "label": "~Zuxuan_Wu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Vlad_I_Morariu1", "label": "~Vlad_I_Morariu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jeany_Son1", "label": "~Jeany_Son1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Deyao_Zhu1", "label": "~Deyao_Zhu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ivan_Skorokhodov1", "label": "~Ivan_Skorokhodov1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ahmed_Elgammal1", "label": "~Ahmed_Elgammal1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dongwon_Kim1", "label": "~Dongwon_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Rui_Tian2", "label": "~Rui_Tian2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Minhyuk_Seo1", "label": "~Minhyuk_Seo1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Habib_Slim1", "label": "~Habib_Slim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hyunseo_Koh1", "label": "~Hyunseo_Koh1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kilichbek_Haydarov2", "label": "~Kilichbek_Haydarov2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xi_Chen3", "label": "~Xi_Chen3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xianzhi_Du4", "label": "~Xianzhi_Du4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Heewon_Kim2", "label": "~Heewon_Kim2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jihwan_Kim5", "label": "~Jihwan_Kim5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jonghyun_Choi1", "label": "~Jonghyun_Choi1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xitong_Yang2", "label": "~Xitong_Yang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Eslam_Mohamed_BAKR1", "label": "~Eslam_Mohamed_BAKR1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kunpeng_Song1", "label": "~Kunpeng_Song1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mingfei_Gao1", "label": "~Mingfei_Gao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hyewon_Yoo1", "label": "~Hyewon_Yoo1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dongwan_Kim1", "label": "~Dongwan_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiaoqian_Shen3", "label": "~Xiaoqian_Shen3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Byeonghwi_Kim1", "label": "~Byeonghwi_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Lingchen_Meng1", "label": "~Lingchen_Meng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jaeyoo_Park1", "label": "~Jaeyoo_Park1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhen_Xing2", "label": "~Zhen_Xing2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Youssef_Sherif_Mansour_Mohamed1", "label": "~Youssef_Sherif_Mansour_Mohamed1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sanghyeok_Chu2", "label": "~Sanghyeok_Chu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haoran_Chen4", "label": "~Haoran_Chen4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Juwon_Kang1", "label": "~Juwon_Kang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mahyar_Khayatkhoei1", "label": "~Mahyar_Khayatkhoei1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bohyung_Han1", "label": "~Bohyung_Han1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ang_Li1", "label": "~Ang_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zejia_Weng1", "label": "~Zejia_Weng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Junke_Wang1", "label": "~Junke_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wenxuan_Zhang3", "label": "~Wenxuan_Zhang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mijeong_Kim1", "label": "~Mijeong_Kim1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sehyun_Hwang1", "label": "~Sehyun_Hwang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~P_J_Narayanan1", "label": "~P_J_Narayanan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Seunghoon_Hong1", "label": "~Seunghoon_Hong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Tackgeun_You1", "label": "~Tackgeun_You1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mahmoud_Ahmed2", "label": "~Mahmoud_Ahmed2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mohamed_Elhoseiny1", "label": "~Mohamed_Elhoseiny1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kamal_Gupta1", "label": "~Kamal_Gupta1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jinyoung_Choi2", "label": "~Jinyoung_Choi2", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Kamal_Gupta1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Zuxuan_Wu1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Xitong_Yang2"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Bohyung_Han1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Ruichi_Yu2"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Vlad_I_Morariu1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Ang_Li1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Jonghyun_Choi1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Vinoj_Jayasundara1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Ahmed_Elgammal1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Yaser_Yacoob1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Mingfei_Gao1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~P_J_Narayanan1"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Xiyang_Dai2"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Xianzhi_Du4"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Xi_Chen3"}, {"arrows": "to", "from": "~Larry_S._Davis1", "to": "~Mahyar_Najibi1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Juwon_Kang1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Nayeong_Kim1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Sehyun_Hwang1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Donghyeon_Kwon1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Tackgeun_You1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Dongwon_Kim1"}, {"arrows": "to", "from": "~Suha_Kwak3", "to": "~Sohyun_Lee1"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Junke_Wang1"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Zhen_Xing2"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Haoran_Chen4"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Lingchen_Meng1"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Rui_Tian2"}, {"arrows": "to", "from": "~Zuxuan_Wu1", "to": "~Zejia_Weng1"}, {"arrows": "to", "from": "~Ahmed_Elgammal1", "to": "~Mahyar_Khayatkhoei1"}, {"arrows": "to", "from": "~Ahmed_Elgammal1", "to": "~Kunpeng_Song1"}, {"arrows": "to", "from": "~Ahmed_Elgammal1", "to": "~Mohamed_Elhoseiny1"}, {"arrows": "to", "from": "~Ahmed_Elgammal1", "to": "~Bingchen_Liu2"}, {"arrows": "to", "from": "~Ahmed_Elgammal1", "to": "~Yizhe_Zhu2"}, {"arrows": "to", "from": "~Jonghyun_Choi1", "to": "~Dahyun_Kim1"}, {"arrows": "to", "from": "~Jonghyun_Choi1", "to": "~Byeonghwi_Kim1"}, {"arrows": "to", "from": "~Jonghyun_Choi1", "to": "~Hyunseo_Koh1"}, {"arrows": "to", "from": "~Jonghyun_Choi1", "to": "~Minhyuk_Seo1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Minsoo_Kang1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Jihwan_Kim5"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Jinyoung_Choi2"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Paul_Hongsuck_Seo1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Mijeong_Kim1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Hyewon_Yoo1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Jin_Young_Choi2"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Heewon_Kim2"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Jeany_Son1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Sanghyeok_Chu2"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Suha_Kwak3"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Jaeyoo_Park1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Tackgeun_You1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Seunghoon_Hong1"}, {"arrows": "to", "from": "~Bohyung_Han1", "to": "~Dongwan_Kim1"}, {"arrows": "to", "from": "~Ang_Li1", "to": "~Junfeng_Guo2"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Deyao_Zhu1"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Mahmoud_Ahmed2"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Xiaoqian_Shen3"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Wenxuan_Zhang3"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Ivan_Skorokhodov1"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Youssef_Sherif_Mansour_Mohamed1"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Kilichbek_Haydarov2"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Eslam_Mohamed_BAKR1"}, {"arrows": "to", "from": "~Mohamed_Elhoseiny1", "to": "~Habib_Slim1"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"shape": "dot", "size": 15, "font": {"size": 20, "color": "black"}}, "edges": {"arrows": {"to": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 95, "springConstant": 0.04}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "~Yanqiao_Zhu1", "label": "~Yanqiao_Zhu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Huan_Sun1", "label": "~Huan_Sun1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sha_Li1", "label": "~Sha_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wenxuan_Zhou2", "label": "~Wenxuan_Zhou2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Matthew_Finlayson1", "label": "~Matthew_Finlayson1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Song_Jiang1", "label": "~Song_Jiang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Honghui_Yang1", "label": "~Honghui_Yang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jie_Zhao1", "label": "~Jie_Zhao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ming_Zhong2", "label": "~Ming_Zhong2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sahana_Ramnath2", "label": "~Sahana_Ramnath2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhiping_Xiao1", "label": "~Zhiping_Xiao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yanru_Qu1", "label": "~Yanru_Qu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Pan_Xu1", "label": "~Pan_Xu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yang_Liu42", "label": "~Yang_Liu42", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jialu_Liu1", "label": "~Jialu_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yue_Wu12", "label": "~Yue_Wu12", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shichang_Zhang2", "label": "~Shichang_Zhang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiawei_Yao3", "label": "~Jiawei_Yao3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qixin_Zhang1", "label": "~Qixin_Zhang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~SHIYANG_LI2", "label": "~SHIYANG_LI2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiang_Ren1", "label": "~Xiang_Ren1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Pengcheng_Jiang2", "label": "~Pengcheng_Jiang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liyuan_Liu1", "label": "~Liyuan_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Arjun_Subramonian1", "label": "~Arjun_Subramonian1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Roshni_Iyer1", "label": "~Roshni_Iyer1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhiyu_Chen1", "label": "~Zhiyu_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yu_Meng1", "label": "~Yu_Meng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wei-Lin_Chen1", "label": "~Wei-Lin_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ran_Xu4", "label": "~Ran_Xu4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhishuai_Liu1", "label": "~Zhishuai_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kewei_Cheng1", "label": "~Kewei_Cheng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiang_Deng2", "label": "~Xiang_Deng2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shuheng_Li1", "label": "~Shuheng_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Boyu_Gou1", "label": "~Boyu_Gou1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bochuan_Cao1", "label": "~Bochuan_Cao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hengtong_Zhang1", "label": "~Hengtong_Zhang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Longtao_Tang1", "label": "~Longtao_Tang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zongyu_Lin1", "label": "~Zongyu_Lin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yaqing_Wang1", "label": "~Yaqing_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jian_Pei1", "label": "~Jian_Pei1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yu_Yang15", "label": "~Yu_Yang15", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kaixuan_Ji2", "label": "~Kaixuan_Ji2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haixin_Wang3", "label": "~Haixin_Wang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Alon_Albalak1", "label": "~Alon_Albalak1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Murong_Yue1", "label": "~Murong_Yue1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Junkai_Zhang2", "label": "~Junkai_Zhang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zekun_Li2", "label": "~Zekun_Li2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Brihi_Joshi1", "label": "~Brihi_Joshi1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hejie_Cui1", "label": "~Hejie_Cui1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Honglei_Zhuang1", "label": "~Honglei_Zhuang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Manish_Gupta1", "label": "~Manish_Gupta1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Suhan_Cui1", "label": "~Suhan_Cui1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yu_Zhang26", "label": "~Yu_Zhang26", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zixiang_Chen1", "label": "~Zixiang_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiang_Yue1", "label": "~Xiang_Yue1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ranak_Roy_Chowdhury1", "label": "~Ranak_Roy_Chowdhury1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Difan_Zou1", "label": "~Difan_Zou1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Muchao_Ye1", "label": "~Muchao_Ye1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuanpu_Cao1", "label": "~Yuanpu_Cao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yujin_Han1", "label": "~Yujin_Han1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dongruo_Zhou1", "label": "~Dongruo_Zhou1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Feijie_Wu1", "label": "~Feijie_Wu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hengjia_Li1", "label": "~Hengjia_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Boshi_Wang2", "label": "~Boshi_Wang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Tianci_Liu1", "label": "~Tianci_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chengyu_Dong1", "label": "~Chengyu_Dong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jingbo_Shang2", "label": "~Jingbo_Shang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weizhi_Wang1", "label": "~Weizhi_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yujia_Wang3", "label": "~Yujia_Wang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liang_Peng3", "label": "~Liang_Peng3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jing_Gao2", "label": "~Jing_Gao2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Semih_Yavuz2", "label": "~Semih_Yavuz2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weikai_Li2", "label": "~Weikai_Li2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Lingxiao_Wang5", "label": "~Lingxiao_Wang5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xifeng_Yan1", "label": "~Xifeng_Yan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Suyu_Ge1", "label": "~Suyu_Ge1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weixin_Wang2", "label": "~Weixin_Wang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zeyi_Liao1", "label": "~Zeyi_Liao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yufan_Zhuang1", "label": "~Yufan_Zhuang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Boyuan_Pan1", "label": "~Boyuan_Pan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiaxin_Huang1", "label": "~Jiaxin_Huang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~PeiFeng_Wang1", "label": "~PeiFeng_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Carl_Yang1", "label": "~Carl_Yang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Fenglong_Ma1", "label": "~Fenglong_Ma1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Linxuan_Xia1", "label": "~Linxuan_Xia1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weitang_Liu1", "label": "~Weitang_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chi_Wang3", "label": "~Chi_Wang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ziyu_Yao1", "label": "~Ziyu_Yao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haoyu_Wang6", "label": "~Haoyu_Wang6", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuanzhou_Chen1", "label": "~Yuanzhou_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiaming_Shen1", "label": "~Jiaming_Shen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weitong_ZHANG1", "label": "~Weitong_ZHANG1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yi_Zhang94", "label": "~Yi_Zhang94", "shape": "dot"}, {"color": "#97c2fc", "id": "~Botao_Yu1", "label": "~Botao_Yu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Quanquan_Gu1", "label": "~Quanquan_Gu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Deng_Cai4", "label": "~Deng_Cai4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Boxi_Wu1", "label": "~Boxi_Wu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jinghui_Chen1", "label": "~Jinghui_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Daxin_Jiang2", "label": "~Daxin_Jiang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Letian_Peng1", "label": "~Letian_Peng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yizhou_Sun1", "label": "~Yizhou_Sun1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wenqing_Chu1", "label": "~Wenqing_Chu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bowen_Jin1", "label": "~Bowen_Jin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bolin_Ding3", "label": "~Bolin_Ding3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hongyi_Peng1", "label": "~Hongyi_Peng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qi_Li14", "label": "~Qi_Li14", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qiwei_Di1", "label": "~Qiwei_Di1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dong-Ho_Lee1", "label": "~Dong-Ho_Lee1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Spencer_Frei1", "label": "~Spencer_Frei1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ruhan_Wang1", "label": "~Ruhan_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Soumya_Sanyal1", "label": "~Soumya_Sanyal1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiyuan_Zhang2", "label": "~Xiyuan_Zhang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiaqi_Wang4", "label": "~Jiaqi_Wang4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chengsong_Huang1", "label": "~Chengsong_Huang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Bill_Yuchen_Lin1", "label": "~Bill_Yuchen_Lin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Juhua_Hu1", "label": "~Juhua_Hu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zijie_Huang1", "label": "~Zijie_Huang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuting_Ning1", "label": "~Yuting_Ning1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ziyi_Yin1", "label": "~Ziyi_Yin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Arvind_Murari_Vepa1", "label": "~Arvind_Murari_Vepa1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Rui_Dong1", "label": "~Rui_Dong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zilong_Wang1", "label": "~Zilong_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chao_Zhang15", "label": "~Chao_Zhang15", "shape": "dot"}, {"color": "#97c2fc", "id": "~ChangHao_Li3", "label": "~ChangHao_Li3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Kuan_Wang1", "label": "~Kuan_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qi_Zhu7", "label": "~Qi_Zhu7", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ziru_Chen1", "label": "~Ziru_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiawei_Han1", "label": "~Jiawei_Han1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yanchao_Tan1", "label": "~Yanchao_Tan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhepei_Wei1", "label": "~Zhepei_Wei1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Hirona_Jacqueline_Arai1", "label": "~Hirona_Jacqueline_Arai1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xinyu_Zhu2", "label": "~Xinyu_Zhu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jinfeng_Xiao1", "label": "~Jinfeng_Xiao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xingwu_Chen1", "label": "~Xingwu_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Siru_Ouyang1", "label": "~Siru_Ouyang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xuan_Luo2", "label": "~Xuan_Luo2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liang_Xie3", "label": "~Liang_Xie3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiafan_He1", "label": "~Jiafan_He1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Tim_Weninger1", "label": "~Tim_Weninger1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yu_Yang9", "label": "~Yu_Yang9", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wei_Dai11", "label": "~Wei_Dai11", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xintong_Li2", "label": "~Xintong_Li2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yaliang_Li1", "label": "~Yaliang_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Pei_Zhou1", "label": "~Pei_Zhou1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xuheng_Li1", "label": "~Xuheng_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qinyuan_Ye1", "label": "~Qinyuan_Ye1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiaotao_Gu1", "label": "~Xiaotao_Gu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yizhu_Jiao1", "label": "~Yizhu_Jiao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Long_Wei1", "label": "~Long_Wei1", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "~Huan_Sun1", "to": "~Boyu_Gou1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Jie_Zhao1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Yuting_Ning1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Boshi_Wang2"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Ziyu_Yao1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Ziru_Chen1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Botao_Yu1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Xiang_Deng2"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Zeyi_Liao1"}, {"arrows": "to", "from": "~Huan_Sun1", "to": "~Xiang_Yue1"}, {"arrows": "to", "from": "~Pan_Xu1", "to": "~Yu_Yang15"}, {"arrows": "to", "from": "~Pan_Xu1", "to": "~Zhishuai_Liu1"}, {"arrows": "to", "from": "~Pan_Xu1", "to": "~Weixin_Wang2"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~PeiFeng_Wang1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Pei_Zhou1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Hirona_Jacqueline_Arai1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Soumya_Sanyal1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Bill_Yuchen_Lin1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Qinyuan_Ye1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Wenxuan_Zhou2"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Sahana_Ramnath2"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Matthew_Finlayson1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Brihi_Joshi1"}, {"arrows": "to", "from": "~Xiang_Ren1", "to": "~Dong-Ho_Lee1"}, {"arrows": "to", "from": "~Yu_Meng1", "to": "~Zhepei_Wei1"}, {"arrows": "to", "from": "~Yu_Meng1", "to": "~Wei-Lin_Chen1"}, {"arrows": "to", "from": "~Yu_Meng1", "to": "~Xinyu_Zhu2"}, {"arrows": "to", "from": "~Jian_Pei1", "to": "~Yu_Yang9"}, {"arrows": "to", "from": "~Jian_Pei1", "to": "~Juhua_Hu1"}, {"arrows": "to", "from": "~Jian_Pei1", "to": "~Daxin_Jiang2"}, {"arrows": "to", "from": "~Difan_Zou1", "to": "~Yujin_Han1"}, {"arrows": "to", "from": "~Difan_Zou1", "to": "~Yi_Zhang94"}, {"arrows": "to", "from": "~Difan_Zou1", "to": "~Xingwu_Chen1"}, {"arrows": "to", "from": "~Dongruo_Zhou1", "to": "~Ruhan_Wang1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Ranak_Roy_Chowdhury1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Xintong_Li2"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Yufan_Zhuang1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Weitang_Liu1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Shuheng_Li1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Letian_Peng1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Zilong_Wang1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Chengyu_Dong1"}, {"arrows": "to", "from": "~Jingbo_Shang2", "to": "~Xiyuan_Zhang2"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Fenglong_Ma1"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Haoyu_Wang6"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Hengtong_Zhang1"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Qi_Li14"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Feijie_Wu1"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Tianci_Liu1"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Yaqing_Wang1"}, {"arrows": "to", "from": "~Jing_Gao2", "to": "~Yaliang_Li1"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Weizhi_Wang1"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Zhiyu_Chen1"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Zekun_Li2"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Xuan_Luo2"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Huan_Sun1"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Alon_Albalak1"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~SHIYANG_LI2"}, {"arrows": "to", "from": "~Xifeng_Yan1", "to": "~Semih_Yavuz2"}, {"arrows": "to", "from": "~Jiaxin_Huang1", "to": "~Chengsong_Huang1"}, {"arrows": "to", "from": "~Carl_Yang1", "to": "~Ran_Xu4"}, {"arrows": "to", "from": "~Carl_Yang1", "to": "~Yanchao_Tan1"}, {"arrows": "to", "from": "~Carl_Yang1", "to": "~Hejie_Cui1"}, {"arrows": "to", "from": "~Carl_Yang1", "to": "~Wei_Dai11"}, {"arrows": "to", "from": "~Fenglong_Ma1", "to": "~Ziyi_Yin1"}, {"arrows": "to", "from": "~Fenglong_Ma1", "to": "~Jiaqi_Wang4"}, {"arrows": "to", "from": "~Fenglong_Ma1", "to": "~Muchao_Ye1"}, {"arrows": "to", "from": "~Fenglong_Ma1", "to": "~Suhan_Cui1"}, {"arrows": "to", "from": "~Ziyu_Yao1", "to": "~Murong_Yue1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Yue_Wu12"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Xuheng_Li1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Jinghui_Chen1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Junkai_Zhang2"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Spencer_Frei1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Weitong_ZHANG1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Kaixuan_Ji2"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Dongruo_Zhou1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Jiafan_He1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Difan_Zou1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Lingxiao_Wang5"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Yuanzhou_Chen1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Pan_Xu1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Zixiang_Chen1"}, {"arrows": "to", "from": "~Quanquan_Gu1", "to": "~Qiwei_Di1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Liang_Peng3"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Boxi_Wu1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Wenqing_Chu1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Honghui_Yang1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Long_Wei1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Liang_Xie3"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Boyuan_Pan1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Linxuan_Xia1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Hengjia_Li1"}, {"arrows": "to", "from": "~Deng_Cai4", "to": "~Yang_Liu42"}, {"arrows": "to", "from": "~Jinghui_Chen1", "to": "~Yujia_Wang3"}, {"arrows": "to", "from": "~Jinghui_Chen1", "to": "~Bochuan_Cao1"}, {"arrows": "to", "from": "~Jinghui_Chen1", "to": "~Yuanpu_Cao1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Rui_Dong1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Yanqiao_Zhu1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Zongyu_Lin1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Zijie_Huang1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Arjun_Subramonian1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Song_Jiang1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Arvind_Murari_Vepa1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Roshni_Iyer1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Weikai_Li2"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Kewei_Cheng1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Shichang_Zhang2"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Zhiping_Xiao1"}, {"arrows": "to", "from": "~Yizhou_Sun1", "to": "~Haixin_Wang3"}, {"arrows": "to", "from": "~Bolin_Ding3", "to": "~Hongyi_Peng1"}, {"arrows": "to", "from": "~Juhua_Hu1", "to": "~Jiawei_Yao3"}, {"arrows": "to", "from": "~Chao_Zhang15", "to": "~Kuan_Wang1"}, {"arrows": "to", "from": "~Chao_Zhang15", "to": "~ChangHao_Li3"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jiaxin_Huang1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Chao_Zhang15"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Honglei_Zhuang1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Liyuan_Liu1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Xiaotao_Gu1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Yu_Meng1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Bowen_Jin1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Sha_Li1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jing_Gao2"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Yanru_Qu1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Suyu_Ge1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Manish_Gupta1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Quanquan_Gu1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Xiang_Ren1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jialu_Liu1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Pengcheng_Jiang2"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Yizhou_Sun1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Deng_Cai4"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Tim_Weninger1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jingbo_Shang2"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Qi_Zhu7"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Bolin_Ding3"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jian_Pei1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Siru_Ouyang1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Xifeng_Yan1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Chi_Wang3"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Ming_Zhong2"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jinfeng_Xiao1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Carl_Yang1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Jiaming_Shen1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Yizhu_Jiao1"}, {"arrows": "to", "from": "~Jiawei_Han1", "to": "~Yu_Zhang26"}, {"arrows": "to", "from": "~Yu_Yang9", "to": "~Longtao_Tang1"}, {"arrows": "to", "from": "~Yu_Yang9", "to": "~Qixin_Zhang1"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"shape": "dot", "size": 15, "font": {"size": 20, "color": "black"}}, "edges": {"arrows": {"to": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 95, "springConstant": 0.04}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,1001 @@
+,Senior Advisor,Tree Size,Tree Depth
+913,~Jiawei_Han1,149,4
+452,~Michael_Jordan1,131,4
+3345,~Joan_Bresnan1,87,5
+118,~Christopher_D_Manning1,86,4
+1067,~Dimitris_N._Metaxas1,84,4
+22891,Vladimir Vapnik,75,4
+666,~Bernhard_Schölkopf1,74,3
+761,~Leonidas_Guibas1,74,3
+307,~Luc_Van_Gool1,71,3
+19745,Stavros Christodoulakis,70,4
+1325,~Christos_Faloutsos1,69,3
+771,~Yoshua_Bengio1,68,2
+4207,Jacob Abraham,65,4
+948,~Larry_S._Davis1,64,3
+641,~Dacheng_Tao1,64,2
+721,~Sanjeev_Arora1,63,3
+25766,~Ronald_Rivest1,61,4
+8803,~Carlos_Guestrin1,61,3
+1049,~Jiaya_Jia1,60,2
+882,~Dan_Klein1,59,3
+1030,~Tommi_S._Jaakkola1,59,3
+699,~Leslie_Pack_Kaelbling1,58,4
+15948,Whitman Richards,57,3
+309,~Joshua_B._Tenenbaum1,56,2
+652,~Zoubin_Ghahramani1,56,2
+24608,~Eric_Grimson2,54,3
+1306,~Tao_Xiang1,53,4
+964,~Devavrat_Shah1,53,3
+502,~Sergey_Levine1,53,2
+2141,~Xiaogang_Wang2,53,2
+1176,~Pieter_Abbeel2,52,2
+584,~Song-Chun_Zhu1,51,3
+2954,~huan_liu1,51,3
+154,~Christos_H._Papadimitriou1,50,3
+2969,~Bernt_Schiele1,50,3
+7098,~Eric_Xing1,50,2
+7539,~Michael_Collins1,49,4
+503,~Zhi-Hua_Zhou2,49,3
+1966,~Inderjit_S_Dhillon1,49,3
+2732,~Victor_Lesser1,49,3
+2795,~Michael_J._Black1,49,3
+4167,~William_T._Freeman1,49,2
+14,~Andreas_Krause1,48,2
+2946,~Trevor_Darrell2,48,2
+415,~Kaushik_Roy1,47,3
+4680,~Massoud_Pedram1,45,3
+2088,~Jinwoo_Shin1,45,2
+2447,~Enhong_Chen1,45,2
+8976,~Leslie_G._Valiant1,44,4
+1071,~Andrew_Zisserman1,44,3
+3298,~Aaron_Courville3,44,2
+3460,~Li_Fei-Fei1,44,2
+2739,~S._Shankar_Sastry1,43,3
+408,~Jitendra_Malik2,43,2
+733,~Stephen_P._Boyd1,42,4
+96,~Antonio_Torralba1,42,3
+365,~Andrew_J._Hanson1,42,3
+3249,~Noah_A._Smith2,42,2
+23303,~Chi_Su2,41,4
+525,~Dimitris_Bertsimas1,41,3
+2072,~Richard_Baraniuk1,41,3
+8698,~Sharon_X_Huang1,41,3
+28199,Randolf Menzel ,41,3
+278,~Pheng-Ann_Heng1,41,2
+632,~Alan_Yuille1,41,2
+9514,Tom Downs,40,4
+17796,~Martin_Vetterli1,40,4
+102,~Wen_Gao1,40,3
+982,~Klaus_Robert_Muller1,40,2
+2114,~Hongsheng_Li3,40,2
+2524,~Xiaoou_Tang1,40,2
+24282,Stefan Schaal,39,5
+565,~Peter_Bartlett1,39,3
+5468,~Bo_Zhang2,39,3
+505,~Fei_Sha2,39,2
+366,~Jan_Peters3,38,4
+16404,~Austin_Tate1,38,4
+1883,~Georgios_B._Giannakis1,38,3
+3254,~Avrim_Blum1,38,3
+1423,~Max_Welling1,38,2
+724,~Dana_Ballard1,37,3
+779,~David_Tse1,37,3
+1008,~Claire_Cardie1,37,3
+5475,~Carla_P_Gomes1,37,3
+1996,~Dahua_Lin1,37,2
+3227,~Chunhua_Shen2,37,2
+3439,~Vipin_Kumar1,36,4
+3185,~Kannan_Ramchandran1,36,3
+788,~Jun_Zhu2,35,2
+1034,~Andrew_McCallum1,35,2
+3998,~Kristen_Grauman1,35,2
+6539,~Martin_J._Wainwright1,34,3
+737,~Doina_Precup1,34,2
+4202,~Kyoung_Mu_Lee2,34,2
+1292,Shashi Shekhar,33,4
+2742,~Zeeshan_Khan1,33,4
+2166,~Dan_Roth3,33,3
+3126,~Luke_Zettlemoyer1,33,3
+6674,~Andrew_Barto1,33,3
+11383,Martin Wainwright,33,3
+1073,~Percy_Liang1,33,2
+1385,~Cordelia_Schmid1,32,3
+269,~Abhinav_Gupta1,32,2
+331,~Ping_Luo2,32,1
+8329,~Hector_J._Levesque1,31,4
+6849,~Shiqiang_Yang1,31,3
+218,~Anima_Anandkumar1,31,2
+1027,~Mihaela_van_der_Schaar2,31,2
+3036,~Tieniu_Tan1,31,2
+4928,~Richard_Zemel1,31,2
+7,~Luca_Daniel1,30,3
+521,~Jiliang_Tang1,30,2
+670,~Joelle_Pineau1,30,2
+940,~Piotr_Indyk1,30,2
+1809,Stan Osher,30,2
+137,~Christoph_Schnoerr1,29,3
+280,Kevin Webb,29,3
+329,~Algirdas_Avizienis1,29,3
+2476,~David_Blei2,29,3
+3712,~Shimon_Whiteson1,29,3
+5476,~Bart_Selman1,29,3
+5827,~Jaime_Carbonell1,29,3
+9429,~Jason_Cong1,29,3
+12111,~Klaus_Pawelzik1,29,3
+1554,~Regina_Barzilay1,29,2
+3828,~Yun_Fu1,29,2
+2896,~Tom_Goldstein1,29,1
+3530,~Timothy_Hospedales1,28,4
+10088,Benjamin K. Tsou,28,4
+572,~Hui_Xiong1,28,3
+2031,~John_E._Hopcroft1,28,3
+10855,~Anshul_Shah1,28,3
+10913,~R._Srikant1,28,3
+17,~Philip_Torr1,28,2
+427,~Alex_Smola1,28,2
+477,~Matthias_Bethge1,28,2
+795,~Lawrence_Carin2,28,2
+909,~Michael_Lyu1,28,2
+927,~Kwanghoon_Sohn2,28,2
+934,~Yee_Whye_Teh2,28,2
+995,~Dale_Schuurmans1,28,2
+1082,~Yi_Yang4,28,2
+1924,~Russ_Salakhutdinov1,28,2
+4204,~Dit-Yan_Yeung2,28,2
+5132,~Csaba_Szepesvari1,28,2
+229,~Maosong_Sun1,27,3
+2318,~Alex_Aiken1,27,3
+5060,~Alan_S._Willsky1,27,3
+0,~Zhangyang_Wang1,27,2
+149,~Rama_Chellappa1,27,2
+196,~In_So_Kweon2,27,2
+464,~Nicu_Sebe1,27,2
+488,~Marc_Pollefeys2,27,2
+528,~Frank_Wood2,27,2
+978,~Kun_Zhang1,27,2
+1077,~Lei_Zhang2,27,2
+4232,~Muriel_Medard1,27,2
+51,~J_Zico_Kolter1,27,1
+5227,Hui Zhang,26,4
+1045,~Kristian_Kersting1,26,3
+1773,~H._Sebastian_Seung1,26,3
+7924,~Dan_Suciu1,26,3
+480,~Daniel_Cremers1,26,2
+524,~Mubarak_Shah3,26,2
+546,~Tat-Seng_Chua2,26,2
+603,~Quanquan_Gu1,26,2
+611,Cheng Wu,26,2
+2169,~Peter_Richtárik1,26,2
+2879,~Hanqing_Lu1,26,2
+6342,~John_Tsitsiklis1,26,2
+1024,~Junchi_Yan2,26,1
+6231,~Trevor_Hastie1,25,4
+139,~Kilian_Q_Weinberger1,25,3
+145,~Jingyu_Yang1,25,3
+806,~Francis_Bach1,25,3
+5144,~Ion_Stoica1,25,3
+7265,~John_Lafferty2,25,3
+10712,Changning Huang,25,3
+10971,~Richard_Muntz1,25,3
+610,~Gao_Huang1,25,1
+5927,Ken J. McDonell,24,4
+14329,David Luenberger,24,4
+14330,George Dantzig,24,4
+27568,Yoav Shoham,24,4
+50,~Julian_McAuley1,24,3
+1040,~Daniel_Cohen-Or1,24,3
+5345,~Eero_P_Simoncelli1,24,3
+7967,sylvain le corff,24,3
+7968,zaid harchaoui,24,3
+7969,sarah filippi,24,3
+12973,~Rajiv_Gupta1,24,3
+212,~Shaogang_Gong2,24,2
+234,~Yann_LeCun1,24,2
+532,~Juanzi_Li1,24,2
+623,~Rongrong_Ji5,24,2
+651,~Robert_D_Nowak1,24,2
+691,~Alexei_A_Efros1,24,2
+1025,~Yiran_Chen1,24,2
+1541,~Jianfei_Cai1,24,2
+1871,~Stefano_Ermon1,24,2
+1982,~Shuicheng_YAN3,24,2
+2086,~Feng_Wu1,24,2
+2326,~Jure_Leskovec1,24,2
+4731,~William_Yang_Wang2,24,2
+6073,~Haesun_Park1,24,2
+10426,~Carl_Edward_Rasmussen1,24,2
+1686,~Yinyu_Ye1,23,3
+2209,~Kevin_Leyton-Brown1,23,3
+7353,~Tatsuya_Kawahara1,23,3
+9109,~Siddhartha_Srinivasa1,23,3
+17411,~Beng_Chin_Ooi1,23,3
+26513,~James_H._McCllelan1,23,3
+39,~Eric_Moulines1,23,2
+223,~Nanning_Zheng1,23,2
+272,~Ali_Farhadi3,23,2
+2121,~ChengXiang_Zhai1,23,2
+2332,~Changshui_Zhang2,23,2
+11384,~Tuomas_Sandholm1,23,2
+406,~Mike_Zheng_Shou1,23,1
+423,~Sungroh_Yoon1,23,1
+472,~Jaegul_Choo1,23,1
+10108,Gerald Sommer,22,6
+19675,~Boualem_Benatallah2,22,4
+199,~Michael_Elad1,22,3
+301,~Andrea_Vedaldi1,22,3
+2971,Hidemitsu Ogawa,22,3
+6300,~Victor_Zue1,22,3
+7354,Shinsuke Mori,22,3
+10548,~Robert_E._Schapire1,22,3
+11997,Nelson Morgan,22,3
+11998,Jim Demmel,22,3
+13837,~Lyle_Ungar1,22,3
+17018,Daniel Whitney,22,3
+27038,Michael Flynn,22,3
+29314,Chih-Jen Lin,22,3
+545,~Yanzhi_Wang3,22,2
+609,~Hongyuan_Zha1,22,2
+1364,~Volkan_Cevher1,22,2
+4001,~Jiwen_Lu1,22,2
+4271,~Bohyung_Han1,22,2
+11843,~Craig_Boutilier2,22,2
+2876,~Hyunwoo_J._Kim3,22,1
+5601,~Chen_Change_Loy2,22,1
+3484,~Michael_Felsberg2,21,5
+3534,~Robert_Meersman1,21,4
+25854,~Katharina_Morik1,21,4
+369,~Franco_Bagnoli1,21,3
+370,Stefano Ruffo,21,3
+1299,~Shengjin_Wang1,21,3
+2116,~Sanjit_A._Seshia1,21,3
+2962,~Pat_Hanrahan1,21,3
+5555,~John_Baras1,21,3
+5660,~Edmund_Clarke1,21,3
+9300,~Naftali_Tishby1,21,3
+19823,~Ralph_Grishman1,21,3
+156,~Xiangyu_Zhang3,21,2
+213,~Christopher_Re1,21,2
+558,~Cho-Jui_Hsieh1,21,2
+569,~Ming-Hsuan_Yang1,21,2
+738,~Nassir_Navab1,21,2
+844,~Chengqi_Zhang1,21,2
+856,~Graham_Neubig1,21,2
+963,~Xia_Hu4,21,2
+1634,~Yejin_Choi1,21,2
+1963,~Gordon_Wetzstein3,21,2
+2215,~Chun_Chen1,21,2
+2315,~Masashi_Sugiyama1,21,2
+3699,~Philip_S._Yu1,21,2
+4093,~Milind_Tambe1,21,2
+5015,~Sanjoy_Dasgupta3,21,2
+5912,~Jeff_Bilmes1,21,2
+6036,~Jie_Zhou3,21,2
+6418,~Masayoshi_Tomizuka1,21,2
+7284,~Barnabas_Poczos1,21,2
+2229,~Hao_Su1,21,1
+2560,~Mohit_Bansal2,21,1
+531,~Ying_Wu7,20,3
+1169,~Ling_Liu3,20,3
+1198,~Xifeng_Yan1,20,3
+2538,~Charles_A._Bouman2,20,3
+6452,~Thorsten_Joachims1,20,3
+6962,~Jieping_Ye2,20,3
+7292,~Andrea_Bonarini1,20,3
+8412,~Venugopal_Veeravalli1,20,3
+8678,Daniel Marcu,20,3
+9789,~Quan_Z._Sheng1,20,3
+24,~Ying_Nian_Wu1,20,2
+67,~Zhiyuan_Liu1,20,2
+323,~Samuel_Kaski1,20,2
+539,~Constantine_Caramanis1,20,2
+570,~Yan_Liu1,20,2
+794,~Mingyan_Liu1,20,2
+896,~Martin_Jaggi1,20,2
+1118,~Jian_Yang1,20,2
+1240,~Hannaneh_Hajishirzi1,20,2
+1733,~Kai-Wei_Chang1,20,2
+2562,~Niki_Trigoni1,20,2
+2563,~Andrew_Markham2,20,2
+2621,~Pietro_Lio1,20,2
+2653,~Mark_Dredze1,20,2
+3003,~Martin_Vechev1,20,2
+3340,~Heng_Ji3,20,2
+3518,~Elad_Hazan1,20,2
+4163,~Bernard_Ghanem1,20,2
+6093,~Arnaud_Doucet2,20,2
+6758,~Jun_Wang2,20,2
+9108,~Geoff_Gordon2,20,2
+13227,~James_Demmel1,20,2
+47,~Yarin_Gal1,20,1
+172,~Houqiang_Li1,20,1
+460,~Furong_Huang1,20,1
+1487,~Se-Young_Yun1,20,1
+1119,~Xiaowei_Zhou3,19,4
+2286,~Sanjoy_Mitter1,19,4
+17324,Thomas Fleming,19,4
+1074,~Shahram_Ghandeharizadeh1,19,3
+3649,Tom Leighton,19,3
+3889,~Michel_X._Goemans1,19,3
+4853,~Satish_Rao1,19,3
+5506,~Guy_Van_den_Broeck1,19,3
+11242,~David_R._Karger1,19,3
+16666,~Manuela_Veloso2,19,3
+27947,Pietro Perona,19,3
+208,~Arthur_Calderbank1,19,2
+320,~Marcello_Restelli1,19,2
+713,~Richard_E_Turner1,19,2
+1007,~Bo_An2,19,2
+1100,~Ali_Jadbabaie1,19,2
+1375,~Richard_Hartley1,19,2
+1376,~Stephen_Gould1,19,2
+1965,~Pradeep_Kumar_Ravikumar1,19,2
+2994,~Hal_Daumé_III1,19,2
+3791,~Eduard_Hovy1,19,2
+5568,~Seungjin_Choi1,19,2
+6689,~Zhou_Zhao3,19,2
+8182,~Shuiwang_Ji1,19,2
+8349,~Raquel_Urtasun1,19,2
+9282,~Judea_Pearl1,19,2
+10085,~Chris_Dyer1,19,2
+12383,~Zengfu_Wang2,19,2
+60,~Stuart_Russell1,19,1
+1289,~Jian_Cheng7,19,1
+2151,~Sung_Ju_Hwang1,19,1
+2516,~Tongliang_Liu1,19,1
+15979,~Jonathan_Smith1,18,4
+2032,~Ping_Li3,18,3
+2115,Shankar Sastry,18,3
+2833,Guoliang Chen,18,3
+2861,~Nahum_Shimkin1,18,3
+4141,~Christoph_H._Lampert6,18,3
+4815,~Michael_Rene_Kosorok1,18,3
+7602,~Mohammed_Bennamoun1,18,3
+19910,Guanyuan Qiu,18,3
+1262,~Fuchun_Sun1,18,2
+1282,~Hongkai_Xiong1,18,2
+1427,~Maria_Florina_Balcan1,18,2
+1448,~Michael_Bowling1,18,2
+1830,~José_Miguel_Hernández-Lobato1,18,2
+1981,~Jiashi_Feng1,18,2
+2051,~Nathan_Srebro1,18,2
+2242,~Jong_Chul_Ye1,18,2
+4046,~Surya_Ganguli1,18,2
+6538,~Stefano_Soatto2,18,2
+23263,~Manolis_Kellis1,18,2
+56,~Christopher_Pal1,18,1
+874,~Sepp_Hochreiter1,18,1
+8233,Tom Mitchell,17,4
+12297,Bjorn Engquist,17,4
+530,~Klara_Nahrstedt1,17,3
+15004,~Florent_Perronnin2,17,3
+17245,Tomas Lozano-Perez,17,3
+18387,~Mark_Cutkosky1,17,3
+239,Carlos Guestrin,17,2
+346,~Mario_Fritz1,17,2
+535,~Peng_Cui1,17,2
+831,~Jie_Lu4,17,2
+1022,~Changsheng_Xu1,17,2
+1116,~Licheng_Jiao2,17,2
+1771,~Mirella_Lapata1,17,2
+1892,~Debin_Zhao1,17,2
+1954,~Qingming_Huang1,17,2
+2026,~Niraj_Jha1,17,2
+2039,~Tatsuya_Harada1,17,2
+2270,~Heng_Huang1,17,2
+2867,~Junmo_Kim1,17,2
+3258,~Andreas_S._Tolias1,17,2
+3374,~Hongdong_Li1,17,2
+4484,~Wei_Wang13,17,2
+5091,Wei Li,17,2
+7060,~Jianping_Yin2,17,2
+316,~Philipp_Hennig1,17,1
+412,~Soheil_Feizi2,17,1
+422,~Seungryong_Kim1,17,1
+556,~Chang_Xu4,17,1
+809,~Matthias_Hein2,17,1
+1880,~Zhouchen_Lin1,17,1
+2341,~Bryan_Kian_Hsiang_Low1,17,1
+4548,~Qifeng_Chen1,17,1
+2260,~Wing_Hung_Wong1,16,4
+520,~Weinan_E2,16,3
+778,~Shashi_Shekhar1,16,3
+1700,~Kathleen_McKeown1,16,3
+1818,~Dennis_Zorin1,16,3
+9855,Oded Goldreich,16,3
+13149,~Ralf_Herbrich1,16,3
+13997,~Daniel_A._Spielman1,16,3
+19397,Manuel Blum,16,3
+21065,~Robert_Miller2,16,3
+55,~Amit_Roy-Chowdhury2,16,2
+128,~Shie_Mannor2,16,2
+204,~Dong_Xu2,16,2
+262,~Jon_Kleinberg3,16,2
+566,~Qiang_Yang1,16,2
+820,~Frank_Hutter1,16,2
+1109,~Alejandro_Ribeiro1,16,2
+1229,~David_C._Parkes1,16,2
+1547,~Xiaokang_Yang1,16,2
+1646,~Zeynep_Akata1,16,2
+1659,~Raffaello_D'Andrea1,16,2
+2017,~Pierre_Vandergheynst1,16,2
+2514,~Chi_Wing_Fu1,16,2
+2641,~John_Guttag2,16,2
+2642,~Zhang_Yi3,16,2
+2663,~Alex_Dimakis1,16,2
+2713,~Emmanuel_Candes1,16,2
+2821,~Chao_Xu1,16,2
+2973,~Josef_Sivic1,16,2
+3013,~Mayur_Naik1,16,2
+3640,Babak Hassibi,16,2
+4284,~Hugo_Larochelle1,16,2
+5155,~James_R._Glass1,16,2
+5713,~Lina_Yao2,16,2
+6008,~John_Canny1,16,2
+6464,~Yingbin_Liang1,16,2
+6763,~Mingli_Song1,16,2
+13265,~Yike_Guo1,16,2
+15046,~Leonard_Mcmillan1,16,2
+16795,~Jose_C_Principe1,16,2
+18291,~Lise_Getoor1,16,2
+20116,Chengtao Wang,16,2
+417,~Gunhee_Kim1,16,1
+2306,~Minsu_Cho1,16,1
+2678,~Joseph_E._Gonzalez1,16,1
+6321,~Aleksander_Madry1,16,1
+6697,Dina Katabi,15,4
+19076,~Shing-Tung_Yau1,15,4
+19077,~Steven_J._Gortler1,15,4
+8,~Luca_Carloni1,15,3
+9,~Jacob_White1,15,3
+673,~George_Em_Karniadakis1,15,3
+1061,~Anant_Sahai1,15,3
+3895,Hans-Peter Kriegel,15,3
+7990,Pascal Massart,15,3
+16361,~Mohamed_Gouda1,15,3
+53,~Kurt_Keutzer1,15,2
+59,~Anca_Dragan1,15,2
+95,~John_Wright1,15,2
+161,~Shi-min_Hu1,15,2
+290,~Thomas_Huang1,15,2
+389,~David_Sontag1,15,2
+785,~David_Z._Pan1,15,2
+823,~Satinder_Singh1,15,2
+904,~Heng_Tao_Shen3,15,2
+1020,~Stephan_Günnemann1,15,2
+1033,~Salman_Avestimehr1,15,2
+1051,~Qixiang_Ye1,15,2
+1201,~Huajun_Chen1,15,2
+1578,~Somesh_Jha1,15,2
+1635,~Rajeev_Alur1,15,2
+1933,~Edward_Adelson1,15,2
+2073,~Vahid_Tarokh1,15,2
+2344,~Boaz_Barak2,15,2
+2389,~Alex_Kot1,15,2
+3170,~Irwin_King1,15,2
+3552,~Ahmed_Elgammal1,15,2
+3606,~Bin_Yu5,15,2
+4008,~Wenping_Wang1,15,2
+4218,~Suvrit_Sra1,15,2
+4226,~Cynthia_Rudin1,15,2
+4769,~Jeff_Schneider1,15,2
+5308,~Noah_Goodman1,15,2
+6618,~Joachim_Weickert1,15,2
+7947,~Peter_Szolovits1,15,2
+10053,~Christof_Koch1,15,2
+12174,~Tsachy_Weissman1,15,2
+14145,~Ryosuke_Shibasaki1,15,2
+21851,~Juha_Karhunen1,15,2
+219,~Peter_Stone1,15,1
+1140,~Jiajun_Wu1,15,1
+1330,~Andrew_Gordon_Wilson1,15,1
+1938,~Xinwang_Liu1,15,1
+2064,~Tong_Zhang2,15,1
+2358,~Gerhard_Neumann2,15,1
+2527,~Wenqiang_Zhang1,15,1
+3616,~Lior_Wolf1,15,1
+5208,~Song_Guo5,15,1
+5487,~Julien_Mairal1,15,1
+5639,~Juho_Lee2,15,1
+9252,~Sanja_Fidler1,15,1
+17807,~Martin_Danelljan4,14,4
+19395,~Shafi_Goldwasser2,14,4
+517,~Jin_Song_Dong2,14,3
+660,~Pankaj_Agarwal1,14,3
+1247,~David_Gu1,14,3
+1248,~Hong_Qin1,14,3
+1642,Michael Bowling,14,3
+2616,~Zoran_Popovi1,14,3
+7017,~Marc_Sebban1,14,3
+11853,~David_Shmoys1,14,3
+12034,~Aditi_Jha1,14,3
+12035,~Iris_R_Stone1,14,3
+12036,~Zoe_Ashwood1,14,3
+22040,~Robert_Williamson1,14,3
+25406,~Jayadev_Misra1,14,3
+27101,~Fang-Wei_Fu1,14,3
+80,~Karsten_Borgwardt2,14,2
+134,~Kostas_Daniilidis1,14,2
+337,~Jordan_Lee_Boyd-Graber1,14,2
+381,~Ming-Ming_Cheng3,14,2
+466,~Karthik_Ramani1,14,2
+594,~Hyeran_Byun1,14,2
+620,~Anshumali_Shrivastava1,14,2
+642,~Weinan_E1,14,2
+786,~Ras_Bodik1,14,2
+1048,~Anthony_Man-Cho_So1,14,2
+1050,~Jianbin_Jiao1,14,2
+1150,~XuanLong_Nguyen1,14,2
+1473,~Vianney_Perchet3,14,2
+1507,~Eric_Todd_SheaBrown1,14,2
+1528,~Arthur_Gretton1,14,2
+2276,~Liwei_Wang1,14,2
+2838,~Liang_Zheng4,14,2
+3582,~Yiannis_Aloimonos1,14,2
+4289,~Gregory_Valiant1,14,2
+4737,~Yizhou_Wang1,14,2
+5588,Michael Gervautz,14,2
+5589,~Dieter_Schmalstieg1,14,2
+6253,~Michael_S._Bernstein1,14,2
+6568,~Narendra_Ahuja1,14,2
+6690,~De-Chuan_Zhan1,14,2
+6712,~Jaime_G._Carbonell1,14,2
+8007,~Wenwu_Zhu1,14,2
+8096,~Mark_Gales1,14,2
+9040,~Yueting_Zhuang1,14,2
+10046,Wenli Xu,14,2
+11300,~Marie-Francine_Moens1,14,2
+13081,~David_Jacobs1,14,2
+13450,Marios Savvides,14,2
+15760,~Alberto_Sangiovanni-Vincentelli1,14,2
+21695,~Andrea_Torsello3,14,2
+46,~Baining_Guo1,14,1
+70,~Michael_M._Bronstein1,14,1
+263,~Andreas_Geiger3,14,1
+327,~Kyunghyun_Cho1,14,1
+401,~Tomer_Michaeli1,14,1
+506,~James_Kwok1,14,1
+629,~Shijian_Lu1,14,1
+710,~Thomas_L._Griffiths1,14,1
+1080,~Yizhou_Sun1,14,1
+1095,~Pascal_Fua1,14,1
+1147,~Laurent_Itti1,14,1
+1214,~Xinchao_Wang1,14,1
+1527,~Eunho_Yang1,14,1
+2283,~Thomas_Serre1,14,1
+2709,~Angela_Yao1,14,1
+4344,~Zheng-Jun_Zha2,14,1
+6589,~Stan_Z._Li2,14,1
+9441,~Jürgen_Schmidhuber1,14,1
+2377,~Kui_Ren4,13,3
+2483,~Salil_Vadhan1,13,3
+5952,Gerd Veenker,13,3
+7339,Zhaohui Wu,13,3
+20334,~Steven_Low1,13,3
+25557,Shouxun Lin,13,3
+3,~Stratis_Gavves1,13,2
+142,~Jing_Gao2,13,2
+143,~Alexandre_Proutiere1,13,2
+345,~Taylor_Berg-Kirkpatrick1,13,2
+360,~Wee_Sun_Lee1,13,2
+458,~Jiebo_Luo1,13,2
+461,~Dinesh_Manocha3,13,2
+789,~Bo_Zhang3,13,2
+829,~Silvio_Savarese1,13,2
+996,~Xing_Xie3,13,2
+1148,~Alfred_Hero1,13,2
+1314,~Qun_Liu1,13,2
+1396,~Wai_Lam1,13,2
+1475,~Jonathan_W._Pillow1,13,2
+1521,~Jiajun_Chen1,13,2
+1707,~Alexandre_Tsybakov1,13,2
+1984,~Chang-Tien_Lu1,13,2
+2071,~Kamalika_Chaudhuri1,13,2
+2102,~Nenghai_Yu1,13,2
+2129,~Erik_B._Sudderth2,13,2
+2245,~Ran_He1,13,2
+2576,Stephen Clark,13,2
+2589,~Christopher_Potts1,13,2
+4183,~Jin_young_Choi1,13,2
+4245,~Alexandre_Gramfort1,13,2
+4276,~Horst_Bischof2,13,2
+4362,~Ambuj_Singh1,13,2
+4578,~Alexander_M_Rush1,13,2
+4619,~Dorsa_Sadigh1,13,2
+5136,Alan Yuille,13,2
+5391,~Volker_Roth1,13,2
+5441,~Larry_Wasserman2,13,2
+5445,~Wilfred_Ng1,13,2
+5807,~Alexander_G_Hauptmann1,13,2
+6094,~Qingfu_Zhang1,13,2
+6377,~Yang_Gao3,13,2
+7086,~Jonathan_Kelner1,13,2
+7131,~Jianqing_Fan1,13,2
+7576,~Yury_Polyanskiy1,13,2
+8399,~Shu-Tao_Xia1,13,2
+8407,~Aarti_Singh2,13,2
+8903,~Stéphane_Mallat1,13,2
+8977,~Ryan_Tibshirani2,13,2
+9528,Nicola Nicolici,13,2
+12971,Kyu-Young Whang,13,2
+17323,~Peter_Ramadge1,13,2
+18376,Geoffrey Hinton,13,2
+19205,~Jie_Zhou2,13,2
+25208,~Kim_Steenstrup_Pedersen1,13,2
+376,~Peter_Wonka1,13,1
+513,~Xiangnan_He1,13,1
+518,~Greg_Durrett1,13,1
+529,~Sanmi_Koyejo1,13,1
+553,~Jian_Zhang22,13,1
+593,~Chelsea_Finn1,13,1
+728,~Georg_Martius1,13,1
+946,~qiang_liu4,13,1
+1009,~Serge_Belongie1,13,1
+1031,~Deva_Ramanan1,13,1
+1096,~Mathieu_Salzmann1,13,1
+1233,~Sham_M._Kakade1,13,1
+1402,~Zongqing_Lu2,13,1
+1474,~Jakob_H._Macke1,13,1
+1532,~Alex_Schwing1,13,1
+1653,~Gim_Hee_Lee1,13,1
+1723,~Zhaoxiang_Zhang3,13,1
+1973,~Chang_D._Yoo1,13,1
+2500,~XIAOJUAN_QI2,13,1
+2825,~Ziwei_Liu1,13,1
+3076,~Yong_Liu11,13,1
+3265,~Elias_Bareinboim2,13,1
+3558,~patrick_gallinari1,13,1
+6070,~Emanuele_Rodolà1,13,1
+6470,~Mingyuan_Zhou1,13,1
+13115,Nicole El Karoui,12,4
+1137,~Joachim_M._Buhmann1,12,3
+2868,Paul Rozin,12,3
+3749,~Faming_Liang1,12,3
+4237,~Jason_J_Corso1,12,3
+5448,~Mitchell_Marcus1,12,3
+5540,~Daqian_Shao1,12,3
+7859,~Mor_Harchol-Balter1,12,3
+9817,~Sridha_Sridharan1,12,3
+14880,~Fredrik_K._Gustafsson1,12,3
+17769,David Clark,12,3
+17770,Fadel Adib,12,3
+17771,~Peng_Cao1,12,3
+20498,Danny Chen,12,3
+23257,~Carlo_Tomasi1,12,3
+65,~Markus_Gross1,12,2
+174,~Kuk-Jin_Yoon1,12,2
+233,~Bastian_Leibe3,12,2
+334,~Brian_D_Ziebart1,12,2
+339,~Andrea_Montanari1,12,2
+437,~Jintao_Li1,12,2
+473,~Christopher_De_Sa2,12,2
+523,~Hassan_Foroosh2,12,2
+548,~Tiejun_Huang1,12,2
+587,~Moses_Charikar1,12,2
+764,~Huan_Sun1,12,2
+877,~Byoung-Tak_Zhang1,12,2
+1011,~Bryan_Hooi1,12,2
+1026,~Joost_van_de_Weijer5,12,2
+1213,~Matthew_B._Blaschko1,12,2
+1274,~JIE_YANG18,12,2
+1336,~Yisong_Yue1,12,2
+1386,~Ivan_Laptev1,12,2
+1740,~Gabriel_Peyré2,12,2
+2128,~Constantinos_Costis_Daskalakis1,12,2
+2519,~Bin_CUI2,12,2
+2624,~Laurent_El_Ghaoui1,12,2
+3282,~Jean_Ponce1,12,2
+3531,~Jie_Zhang9,12,2
+3842,~Yizhou_Yu1,12,2
+4004,~Kwan-Yee_K._Wong1,12,2
+4429,Bede Liu,12,2
+4621,~Lexing_Ying1,12,2
+4626,~Dhruv_Batra1,12,2
+4794,~Samir_Khuller3,12,2
+4885,~Kevin_Patrick_Murphy1,12,2
+5262,~Nuno_Vasconcelos1,12,2
+5287,~Dragomir_Radev2,12,2
+5839,~Mausam_.1,12,2
+6071,~Alexander_Bronstein1,12,2
+6216,~Cees_G._M._Snoek1,12,2
+6694,~Arie_Kaufman1,12,2
+6725,Kathleen Carley,12,2
+6760,~Rynson_W._H._Lau1,12,2
+6804,~Tom_Mitchell2,12,2
+6885,~Lang_Tong1,12,2
+7165,~Long_Quan2,12,2
+8501,~Dan_Jurafsky1,12,2
+8777,~Dimitris_Samaras3,12,2
+9704,~Don_Towsley1,12,2
+9974,Rick Carley,12,2
+10219,David Messerschmitt,12,2
+11495,~Chong-ho_Choi1,12,2
+12050,~Liqing_Zhang2,12,2
+13279,~Marc_G_Bellemare1,12,2
+17216,~Kim-Hui_Yap1,12,2
+21014,~Wray_Buntine1,12,2
+171,~Wengang_Zhou1,12,1
+310,~Søren_Hauberg1,12,1
+338,~Bhiksha_Raj1,12,1
+343,~Thomas_Brox1,12,1
+356,~Xiang_Ren1,12,1
+402,~Honglak_Lee2,12,1
+682,~Rene_Vidal1,12,1
+1010,~Bharath_Hariharan3,12,1
+1069,~George_Konidaris1,12,1
+1340,~Vincent_Tan1,12,1
+2082,~Matthieu_Cord1,12,1
+2277,~Nicolò_Cesa-Bianchi1,12,1
+2302,~Florent_Krzakala1,12,1
+3275,~Qiang_Xu1,12,1
+3330,~Jifeng_Dai1,12,1
+3835,~Yi_Ma4,12,1
+3993,~Xiaofei_He2,12,1
+2210,~Sunyuan_Kung1,11,3
+3138,~Enhua_Wu1,11,3
+3884,~Prasad_Tadepalli3,11,3
+4265,~Kang_G._Shin1,11,3
+5394,~Sinan_Gunturk1,11,3
+7989,Gabor Lugosi,11,3
+9428,~Bodo_Rosenhahn1,11,3
+10329,Lui Sha,11,3
+11237,~David_Jensen1,11,3
+12142,~Alexandre_d'Aspremont1,11,3
+14667,Matt Mason,11,3
+14775,Luca Trevisan,11,3
+15078,Bernard,11,3
+15867,~Sida_Peng1,11,3
+15868,Yuchi Huo,11,3
+16567,~Kristin_Bennett1,11,3
+18865,Chen Ding,11,3
+20217,Charles Elkan,11,3
+21436,Jue Wang,11,3
+21820,KAI Hwang,11,3
+22690,Peter j bickel,11,3
+26334,~Kai_1,11,3
+26469,Chunyi Shi,11,3
+27491,Runsheng Liu,11,3
+271,~Steve_Seitz1,11,2
+305,~JONATHAN_P_HOW1,11,2
+340,~Mohsen_Bayati1,11,2
+500,~Vikas_Singh1,11,2
+534,~Zhibo_Chen1,11,2
+619,~Maarten_de_Rijke1,11,2
+633,~Benjamin_Van_Durme2,11,2
+746,~Ronitt_Rubinfeld1,11,2
+802,~Tarek_F._Abdelzaher1,11,2
+815,~Pushpak_Bhattacharyya1,11,2
+1124,~Baochun_Li1,11,2
+1180,~Gal_Chechik1,11,2
+1399,~Gang_Pan1,11,2
+1401,~Subbarao_Kambhampati1,11,2
+1425,~Jason_Eisner1,11,2
+1434,~Stefano_Soatto1,11,2
+1436,~Thomas_B._Schön1,11,2
+1614,~Ian_Reid1,11,2
+1706,~Xuanjing_Huang1,11,2
+1737,~Volker_Tresp1,11,2
+1808,~Marta_Kwiatkowska1,11,2
+1927,~Yixin_Chen1,11,2
+2090,~Bo_Chen1,11,2
+2100,~Jinhui_Xu1,11,2
+2170,~Ankur_Moitra1,11,2
+2314,~Issei_Sato2,11,2
+2320,~Martin_Rinard1,11,2
+2394,~Mauricio_Barahona1,11,2
+2466,~Thomas_Hofmann1,11,2
+2974,~Leon_Bottou1,11,2
+3070,~Benjamin_Recht1,11,2
+3123,~Daniela_Rus1,11,2
+3202,Qionghai Dai,11,2
+3645,~Michele_Sebag1,11,2
+3706,~Gerhard_Weikum1,11,2
+3890,~James_McClelland1,11,2
+4020,~Ashok_Veeraraghavan1,11,2
+4036,~Xin_Geng1,11,2
+4196,~Lap-Pui_Chau3,11,2
+4431,Deb Roy,11,2
+4583,~Donald_Goldfarb1,11,2
+4663,~Yunde_Jia1,11,2
+4722,~Anthony_Kum_Hoe_Tung1,11,2
+4829,~Demetri_Terzopoulos1,11,2
+5075,~Karen_Liu1,11,2
+5161,~Justin_Solomon1,11,2
+5281,~Jianhuang_Lai1,11,2
+5467,~Jun_Zhu9,11,2
+5481,~Erwan_Le_Pennec1,11,2
+5793,~Sam_Kwong1,11,2
+6286,~Dina_Katabi1,11,2
+7835,~Kaushik_Roy3,11,2
+9022,Raymond Pickholtz,11,2
+10370,Xifeng Yan,11,2
+10593,~Mykel_Kochenderfer1,11,2
+12003,~Dieter_Fox1,11,2
+20567,~Arno_Siebes1,11,2
+28363,Bill Dally,11,2
+29775,Lide Wu,11,2
+12,~Sebastian_Trimpe1,11,1
+455,~Xiaochun_Cao3,11,1
+522,~Jie_Tang1,11,1
+617,~Yi_Yang22,11,1
+647,~Xiaolong_Wang3,11,1
+1181,~Yong_Jae_Lee2,11,1
+1253,~Yaoliang_Yu1,11,1
+1391,~Ole_Winther1,11,1
+1451,~Jaekyun_Moon2,11,1
+1894,~Xuming_He3,11,1
+2097,~Ivan_Titov1,11,1
+2230,~Feng_Zhao6,11,1
+2292,~Deng_Cai4,11,1
+2511,~Ranjay_Krishna1,11,1
+2599,~Wanli_Ouyang1,11,1
+2836,~Il-chul_Moon1,11,1
+3285,~Ming_Lin2,11,1
+3504,~Yong_Man_Ro3,11,1
+4358,~Nojun_Kwak1,11,1
+5048,~Mykola_Pechenizkiy1,11,1
+5328,~Sameer_Singh1,11,1
+6704,~Shih-Fu_Chang3,11,1
+8720,~Hanghang_Tong3,11,1
+1524,Thomas Kailath,10,3
+3905,~Nikos_Paragios3,10,3
+4185,Albert Macovski,10,3
+4608,Howard Shrobe,10,3
+6681,~Mark_Horowitz1,10,3
+7595,~Krystian_Mikolajczyk3,10,3
+8817,~Thomas_Richardson1,10,3
+9138,~Qian_Yu4,10,3
+11423,~M._Özsu1,10,3
+15037,~Geir_Dullerud1,10,3
+15697,~Robyn_Owens1,10,3
+16593,zhenyang wu,10,3
+18694,~Claire_Vernade1,10,3
+19092,~Lubomir_Bic1,10,3
+25894,Changxin Fan,10,3
+36,~Simo_Särkkä1,10,2
+57,~Xue_Liu1,10,2
+124,~Aurélien_Garivier1,10,2
+207,~Jian_Wu6,10,2
+251,~Si_Wu1,10,2
+425,~Madhu_Sudan1,10,2
+559,~Pulkit_Grover1,10,2
+679,~David_Hsu1,10,2
+1252,~Mark_Coates1,10,2
+1269,~Sinno_Jialin_Pan1,10,2
+1337,~Bruce_Hajek1,10,2
+1348,~Ravi_Ramamoorthi3,10,2
+1369,PhD Advisor,10,2
+1398,~James_Hendler1,10,2
+1457,Stuart Russell,10,2
+1552,~Ariel_D._Procaccia1,10,2
+1556,Hsiao-Dong Chiang,10,2
+1650,Ting Liu,10,2
+1668,~Pablo_Parrilo1,10,2
+1709,~Stan_Sclaroff1,10,2
+1814,~Markus_Püschel1,10,2
+1843,~Shizhong_Liao1,10,2
+2069,~Xinmei_Tian1,10,2
+2091,~Svetha_Venkatesh1,10,2
+2104,~Joydeep_Ghosh1,10,2
+2223,~Ivor_Tsang1,10,2
+2409,~Yong_Yu1,10,2
+2462,~Pramod_Varshney1,10,2
+2490,~Pierre-Yves_Oudeyer1,10,2
+2543,~Xiaoyan_Zhu1,10,2
+2751,~Zachary_Chase_Lipton1,10,2
+2830,~Lizhong_Zheng1,10,2
+2942,Jiaguang Sun,10,2
+3208,~Xilin_Chen1,10,2
+3276,Nanning Zheng,10,2
+3384,~Ido_Dagan1,10,2
+3591,~Qian_Wang13,10,2
+4083,~Larry_Abbott1,10,2
+4197,~Ying_He1,10,2
+4304,~Terry_Lyons2,10,2
+4492,~Mohan_Kankanhalli1,10,2
+4517,~Roger_Zimmermann1,10,2
+5039,~Alan_Black1,10,2
+5228,~Martial_Hebert1,10,2
+5720,Qunsheng Peng,10,2
+5884,~Xipeng_Shen1,10,2
+6043,~Lionel_Ni1,10,2
+6236,~Fredo_Durand1,10,2
+6276,~Stephan_Mandt1,10,2
+6525,~Hujun_Bao1,10,2
+6713,~John_Duchi1,10,2
+6723,~Amir_Globerson1,10,2
+6769,~Junsong_Yuan2,10,2
+7037,~Jeffrey_Naughton1,10,2
+7042,Deren Chen,10,2
+7322,~Ao_Tang1,10,2
+7507,~Yaron_Lipman1,10,2
+8294,~James_Matthew_Rehg1,10,2
+8496,~Liang_Wang3,10,2
+9666,~Huazhong_Yang2,10,2
+9853,~Jun_Zhao4,10,2
+9935,Nihat Ay,10,2
+11738,~Russ_Tedrake1,10,2
+12179,~Amaury_Habrard1,10,2
+13868,~Yaacov_Ritov2,10,2
+15549,Shuning Wang,10,2
+16375,~Ken_Goldberg1,10,2
+18446,~Diana_Marculescu4,10,2
+19454,~Gilles_Stoltz1,10,2
+19559,~Hong_Cheng1,10,2
+21395,David Gifford,10,2
+24276,~Nando_de_Freitas1,10,2
+24339,Bradley W. Dickinson,10,2
+89,~Chris_J._Maddison1,10,1
+105,~Mohamed_Elhoseiny1,10,1
+164,~Abhinav_Shrivastava2,10,1
+253,~Kun_Kuang1,10,1
+275,~François_Fleuret2,10,1
+348,~Andre_Martins1,10,1
+476,~Wieland_Brendel1,10,1
+736,~Pierre-Luc_Bacon1,10,1
+763,~Yu_Su2,10,1
+822,~Tinne_Tuytelaars1,10,1
+827,~Negar_Kiyavash1,10,1
+854,~Qixing_Huang1,10,1
+864,~Nanyun_Peng1,10,1
+1263,~Xiangyang_Ji1,10,1
+1378,~Ila_R_Fiete1,10,1
+1381,~Rui_Yan2,10,1
+1544,~Xiaomeng_Li1,10,1
+1573,~Wei-Lun_Chao1,10,1
+1588,~Sewoong_Oh3,10,1
+1611,~Christos_Thrampoulidis1,10,1
+1648,~Martha_White1,10,1
+1702,~Philippe_Rigollet1,10,1
+1705,~Xipeng_Qiu1,10,1
+1846,~Yisen_Wang1,10,1
+1947,~Bo_Li19,10,1
+1997,~Hanwang_Zhang3,10,1
+2065,~Mark_Schmidt1,10,1
+2152,~Somayeh_Sojoudi1,10,1
+2157,~Song_Han5,10,1
+2475,~Jae-Gil_Lee1,10,1
+2557,~Yang_You1,10,1
+2604,~Jingrui_He1,10,1
+2759,~Jiancheng_Lv2,10,1
+3118,~Hisashi_Kashima2,10,1
+3129,~Alain_Oliviero_Durmus1,10,1
+3250,~Katerina_Fragkiadaki1,10,1
+3317,~Ya-Qin_Zhang1,10,1
+3468,~Tao_Chen6,10,1
+3488,~Mert_Pilanci3,10,1
+3505,~Yu-Xiang_Wang1,10,1
+3786,~Mingkui_Tan2,10,1
+3813,~Wojciech_Matusik2,10,1
+3839,~Phillip_Isola1,10,1
+4012,~Bernd_Bischl1,10,1
+4295,~Jiantao_Jiao1,10,1
+4478,~Hyun_Oh_Song1,10,1
+4909,~Marc_Peter_Deisenroth1,10,1
+4927,~Roger_Baker_Grosse1,10,1
+4966,~Lihua_Zhang1,10,1
+4980,~Jingbo_Shang2,10,1
+5103,~Yangqiu_Song1,10,1
+5733,~Kris_M._Kitani1,10,1
+5834,~John_P_Dickerson1,10,1
+6033,~Mingsheng_Long5,10,1
+6262,~Armando_Solar-Lezama1,10,1
+7699,~Thomas_Lukasiewicz2,10,1
+8731,~jae-joon_kim1,10,1
+9049,~Yingyan_Celine_Lin1,10,1
+14338,Marilyn Wolf,9,4
+368,~Kevin_Knight1,9,3
+774,Neil Lawrence,9,3
+3495,~Benjamin_Kuipers1,9,3
+4330,Pravin Varaiya,9,3
+4604,~Andrew_Moore1,9,3
+5086,~Zongben_Xu1,9,3
+6429,~Akihiro_Sugimoto2,9,3
+7923,~Don_H._Johnson1,9,3
+8188,Mischa Schwartz,9,3
+13546,Hugh Durrant-Whyte,9,3
+14963,~Ayan_Das1,9,3
+15372,Scott Shenker,9,3
+19127,Alexander Immer,9,3
+19128,~Hugo_Yèche1,9,3
+19129,Tanmay Tanna,9,3

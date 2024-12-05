@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhD Advisor Tree</title>
+    <style>
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            text-align: left; 
+        }
+    </style>
+</head>
+<body>
+    <h1>PhD Advisor Research Tree</h1>
+    <table id="advisorTable">
+        <thead>
+            <tr>
+                <th>Senior Advisor</th>
+                <th>Tree Size</th>
+                <th>Tree Depth</th>
+                <th>Visualization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                // Fetch and populate CSV data
+                fetch('data/phd_advisor_tree.csv')
+                    .then(response => response.text())
+                    .then(data => {
+                        const rows = data.split('\n').slice(1);
+                        const tableBody = document.querySelector('#advisorTable tbody');
+                        
+                        rows.forEach(row => {
+                            if (row.trim()) {
+                                const [advisor, treeSize, treeDepth] = row.split(',');
+                                const tr = document.createElement('tr');
+                                
+                                tr.innerHTML = `
+                                    <td>${advisor}</td>
+                                    <td>${treeSize}</td>
+                                    <td>${treeDepth}</td>
+                                    <td><a href="data/visualizations/${advisor}_tree.html">View Tree</a></td>
+                                `;
+                                
+                                tableBody.appendChild(tr);
+                            }
+                        });
+                    });
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>

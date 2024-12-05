@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Michael Bowling", "label": "Michael Bowling", "shape": "dot"}, {"color": "#97c2fc", "id": "~Alex_Lewandowski1", "label": "~Alex_Lewandowski1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ali_Adrien_Ali_Taiga1", "label": "~Ali_Adrien_Ali_Taiga1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Pierluca_D\u0027Oro1", "label": "~Pierluca_D\u0027Oro1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Charline_Le_Lan2", "label": "~Charline_Le_Lan2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Rishabh_Agarwal2", "label": "~Rishabh_Agarwal2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jesse_Farebrother1", "label": "~Jesse_Farebrother1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Marc_Lanctot1", "label": "~Marc_Lanctot1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Nathan_Rahn1", "label": "~Nathan_Rahn1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Marlos_C._Machado1", "label": "~Marlos_C._Machado1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Diego_Gomez1", "label": "~Diego_Gomez1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Marc_G_Bellemare1", "label": "~Marc_G_Bellemare1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Harley_Wiltzer1", "label": "~Harley_Wiltzer1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Brett_Daley1", "label": "~Brett_Daley1", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Michael Bowling", "to": "~Marc_G_Bellemare1"}, {"arrows": "to", "from": "Michael Bowling", "to": "~Marc_Lanctot1"}, {"arrows": "to", "from": "~Marlos_C._Machado1", "to": "~Diego_Gomez1"}, {"arrows": "to", "from": "~Marlos_C._Machado1", "to": "~Alex_Lewandowski1"}, {"arrows": "to", "from": "~Marlos_C._Machado1", "to": "~Brett_Daley1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Harley_Wiltzer1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Pierluca_D\u0027Oro1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Nathan_Rahn1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Charline_Le_Lan2"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Rishabh_Agarwal2"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Ali_Adrien_Ali_Taiga1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Marlos_C._Machado1"}, {"arrows": "to", "from": "~Marc_G_Bellemare1", "to": "~Jesse_Farebrother1"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"shape": "dot", "size": 15, "font": {"size": 20, "color": "black"}}, "edges": {"arrows": {"to": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 95, "springConstant": 0.04}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

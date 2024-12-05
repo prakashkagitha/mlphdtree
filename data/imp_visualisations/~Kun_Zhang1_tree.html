@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "~Kun_Zhang1", "label": "~Kun_Zhang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wenjie_Wang3", "label": "~Wenjie_Wang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haoyue_Dai1", "label": "~Haoyue_Dai1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haopeng_Li1", "label": "~Haopeng_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Aoqi_Zuo1", "label": "~Aoqi_Zuo1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Weiran_Yao1", "label": "~Weiran_Yao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Loka_Li1", "label": "~Loka_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yiwen_Qiu1", "label": "~Yiwen_Qiu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yewen_Fan1", "label": "~Yewen_Fan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhenhao_Chen1", "label": "~Zhenhao_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dongting_Hu1", "label": "~Dongting_Hu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ignavier_Ng1", "label": "~Ignavier_Ng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mingming_Gong1", "label": "~Mingming_Gong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Namrata_Deka1", "label": "~Namrata_Deka1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zeyu_Tang1", "label": "~Zeyu_Tang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Erdun_Gao1", "label": "~Erdun_Gao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuanyuan_Wang5", "label": "~Yuanyuan_Wang5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Feng_Xie1", "label": "~Feng_Xie1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiangchen_Song1", "label": "~Xiangchen_Song1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiaxian_Guo2", "label": "~Jiaxian_Guo2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yujia_Zheng1", "label": "~Yujia_Zheng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ruibo_Tu1", "label": "~Ruibo_Tu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shaoan_Xie4", "label": "~Shaoan_Xie4", "shape": "dot"}, {"color": "#97c2fc", "id": "~Petar_Stojanov1", "label": "~Petar_Stojanov1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Biwei_Huang1", "label": "~Biwei_Huang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zheng_Li27", "label": "~Zheng_Li27", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xinyue_Wang1", "label": "~Xinyue_Wang1", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "~Kun_Zhang1", "to": "~Loka_Li1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Yujia_Zheng1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Xiangchen_Song1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Haoyue_Dai1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Feng_Xie1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Weiran_Yao1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Shaoan_Xie4"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Namrata_Deka1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Ruibo_Tu1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Ignavier_Ng1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Zeyu_Tang1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Yiwen_Qiu1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Zhenhao_Chen1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Petar_Stojanov1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Yewen_Fan1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Mingming_Gong1"}, {"arrows": "to", "from": "~Kun_Zhang1", "to": "~Biwei_Huang1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Dongting_Hu1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Haopeng_Li1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Jiaxian_Guo2"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Aoqi_Zuo1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Erdun_Gao1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Yuanyuan_Wang5"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Zhenhao_Chen1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Wenjie_Wang3"}, {"arrows": "to", "from": "~Feng_Xie1", "to": "~Zheng_Li27"}, {"arrows": "to", "from": "~Biwei_Huang1", "to": "~Xinyue_Wang1"}, {"arrows": "to", "from": "~Biwei_Huang1", "to": "~Yuanyuan_Wang5"}, {"arrows": "to", "from": "~Biwei_Huang1", "to": "~Wenjie_Wang3"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"shape": "dot", "size": 15, "font": {"size": 20, "color": "black"}}, "edges": {"arrows": {"to": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 95, "springConstant": 0.04}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

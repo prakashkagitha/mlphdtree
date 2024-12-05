@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "~Rong_Bao1", "label": "~Rong_Bao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xinbiao_Wang1", "label": "~Xinbiao_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Qiang_Li5", "label": "~Qiang_Li5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zuopeng_Yang1", "label": "~Zuopeng_Yang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Wenjie_Wang3", "label": "~Wenjie_Wang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jianbin_Zheng1", "label": "~Jianbin_Zheng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Runqi_Lin1", "label": "~Runqi_Lin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiaobo_Xia1", "label": "~Xiaobo_Xia1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Sen_Zhang3", "label": "~Sen_Zhang3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chang_Li5", "label": "~Chang_Li5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shanshan_Zhao2", "label": "~Shanshan_Zhao2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Aoqi_Zuo1", "label": "~Aoqi_Zuo1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shengchao_Hu1", "label": "~Shengchao_Hu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chaojian_Yu1", "label": "~Chaojian_Yu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ruxin_Wang2", "label": "~Ruxin_Wang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yu_Yao3", "label": "~Yu_Yao3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haibo_Qiu1", "label": "~Haibo_Qiu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liyao_Tang1", "label": "~Liyao_Tang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiyang_Zheng1", "label": "~Jiyang_Zheng1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Duke_Nguyen1", "label": "~Duke_Nguyen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhenhao_Chen1", "label": "~Zhenhao_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dongting_Hu1", "label": "~Dongting_Hu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Charles_Xu1", "label": "~Charles_Xu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yufei_Xu1", "label": "~Yufei_Xu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Fengming_Huang2", "label": "~Fengming_Huang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Huan_Fu1", "label": "~Huan_Fu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Mingming_Gong1", "label": "~Mingming_Gong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chaoyue_Wang2", "label": "~Chaoyue_Wang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Chen_Gong5", "label": "~Chen_Gong5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhuo_Huang2", "label": "~Zhuo_Huang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Guozheng_Ma2", "label": "~Guozheng_Ma2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yang_Qian1", "label": "~Yang_Qian1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yan_Sun3", "label": "~Yan_Sun3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yexiong_Lin1", "label": "~Yexiong_Lin1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liang_Ding3", "label": "~Liang_Ding3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xiu-Chuan_Li1", "label": "~Xiu-Chuan_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Muyang_Li3", "label": "~Muyang_Li3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Dacheng_Tao1", "label": "~Dacheng_Tao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhibin_Hong1", "label": "~Zhibin_Hong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Erdun_Gao1", "label": "~Erdun_Gao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Tongliang_Liu1", "label": "~Tongliang_Liu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Baosheng_Yu1", "label": "~Baosheng_Yu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zixuan_Hu1", "label": "~Zixuan_Hu1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuanyuan_Wang5", "label": "~Yuanyuan_Wang5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Liu_Liu8", "label": "~Liu_Liu8", "shape": "dot"}, {"color": "#97c2fc", "id": "~Long_Lan2", "label": "~Long_Lan2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shan_You3", "label": "~Shan_You3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Li_He3", "label": "~Li_He3", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jiaxian_Guo2", "label": "~Jiaxian_Guo2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Xinyuan_Chen1", "label": "~Xinyuan_Chen1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhe_Chen5", "label": "~Zhe_Chen5", "shape": "dot"}, {"color": "#97c2fc", "id": "~Ziming_Hong1", "label": "~Ziming_Hong1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Suqin_Yuan1", "label": "~Suqin_Yuan1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yongcheng_Jing1", "label": "~Yongcheng_Jing1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Zhen_Wang9", "label": "~Zhen_Wang9", "shape": "dot"}, {"color": "#97c2fc", "id": "~Jingyi_Liao1", "label": "~Jingyi_Liao1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yunhe_Wang1", "label": "~Yunhe_Wang1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shaoli_Huang2", "label": "~Shaoli_Huang2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Shikun_Li1", "label": "~Shikun_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Yuhao_Wu2", "label": "~Yuhao_Wu2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Cong_Lei2", "label": "~Cong_Lei2", "shape": "dot"}, {"color": "#97c2fc", "id": "~Edward_Bai1", "label": "~Edward_Bai1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Haopeng_Li1", "label": "~Haopeng_Li1", "shape": "dot"}, {"color": "#97c2fc", "id": "~Meng_Fang1", "label": "~Meng_Fang1", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "~Mingming_Gong1", "to": "~Dongting_Hu1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Haopeng_Li1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Jiaxian_Guo2"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Aoqi_Zuo1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Erdun_Gao1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Yuanyuan_Wang5"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Zhenhao_Chen1"}, {"arrows": "to", "from": "~Mingming_Gong1", "to": "~Wenjie_Wang3"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Zixuan_Hu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Liang_Ding3"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Yan_Sun3"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Chen_Gong5"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Yufei_Xu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Zuopeng_Yang1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Guozheng_Ma2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Rong_Bao1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Yunhe_Wang1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Baosheng_Yu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Yongcheng_Jing1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Huan_Fu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Meng_Fang1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Chang_Li5"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Tongliang_Liu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Qiang_Li5"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Jiaxian_Guo2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Xinyuan_Chen1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Jingyi_Liao1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Sen_Zhang3"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Zhen_Wang9"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Liu_Liu8"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Shanshan_Zhao2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Ruxin_Wang2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Zhe_Chen5"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Jianbin_Zheng1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Haibo_Qiu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Shan_You3"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Chaoyue_Wang2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Long_Lan2"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Charles_Xu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Zhibin_Hong1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Liyao_Tang1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Shengchao_Hu1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Xinbiao_Wang1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Yang_Qian1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Mingming_Gong1"}, {"arrows": "to", "from": "~Dacheng_Tao1", "to": "~Shaoli_Huang2"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Xiaobo_Xia1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Cong_Lei2"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Duke_Nguyen1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Suqin_Yuan1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Shikun_Li1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Zhuo_Huang2"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Yuhao_Wu2"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Yu_Yao3"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Chaojian_Yu1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Muyang_Li3"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Li_He3"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Xiu-Chuan_Li1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Jiyang_Zheng1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Ziming_Hong1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Fengming_Huang2"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Runqi_Lin1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Yexiong_Lin1"}, {"arrows": "to", "from": "~Tongliang_Liu1", "to": "~Edward_Bai1"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"shape": "dot", "size": 15, "font": {"size": 20, "color": "black"}}, "edges": {"arrows": {"to": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 95, "springConstant": 0.04}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
