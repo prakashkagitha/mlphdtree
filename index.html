@@ -47,6 +47,16 @@
             background-color: #f9f9f9;
         }
 
+        /* Adjust column widths */
+        th:nth-child(1), td:nth-child(1) {
+            width: 30%; /* Reduced width for names */
+        }
+
+        th:nth-child(2), td:nth-child(2),
+        th:nth-child(3), td:nth-child(3) {
+            width: 35%; /* Increased width for size and depth */
+        }
+
         /* Link styles */
         a {
             color: #4CAF50;
@@ -75,13 +85,13 @@
     </style>
 </head>
 <body>
-    <h1>ML PhD Advisor Trees</h1>
+    <h1>ML PhD Advising Tree</h1>
     <table id="advisorTable">
         <thead>
             <tr>
-                <th>Senior Advisor</th>
-                <th>Tree Size</th>
-                <th>Tree Depth</th>
+                <th>PhD Advisor</th>
+                <th>Total PhD students (direct/indirect)</th>
+                <th>Num of academic 'generations'</th>
                 <th>Visualization</th>
             </tr>
         </thead>
@@ -93,15 +103,20 @@
                     .then(data => {
                         const tableBody = document.querySelector('#advisorTable tbody');
                         
-                        // Loop through and append all rows
                         data.forEach(row => {
                             const tr = document.createElement('tr');
                             
-                            // Replace '~' with '' in the 'Senior Advisor' file path
+                            // Clean up and format the name
+                            let visibleName = row['Senior Advisor']
+                                .replace(/~/g, '')   // Remove "~"
+                                .replace(/_/g, ' ')  // Replace "_" with spaces
+                                .replace(/\d+/g, ''); // Remove numbers
+                            
+                            // Clean up the file path for visualization link
                             const fileName = row['Senior Advisor'].replace(/~/g, '');
                             
                             tr.innerHTML = `
-                                <td>${row['Senior Advisor']}</td>
+                                <td>${visibleName.trim()}</td>
                                 <td>${row['Tree Size']}</td>
                                 <td>${row['Tree Depth']}</td>
                                 <td><a href="data/visualisations/${fileName}_tree.html">View Tree</a></td>
