@@ -20,46 +20,65 @@
     <table id="advisorTable">
         <thead>
             <tr>
-                <th>Index</th>
                 <th>Senior Advisor</th>
                 <th>Tree Size</th>
                 <th>Tree Depth</th>
                 <th>Visualization</th>
             </tr>
         </thead>
-        <tbody>
-            <script>
-                // Fetch and populate CSV data
-                fetch('data/phd_advisor_tree.csv')
-                    .then(response => response.text())
-                    .then(data => {
-                        const rows = data.split('\n').slice(1);
-                        const tableBody = document.querySelector('#advisorTable tbody');
-                        
-                        rows.forEach(row => {
-                            if (row.trim()) {
-                                // Split the row, accounting for the index column
-                                const [index, advisor, treeSize, treeDepth] = row.split('\t');
-                                
-                                // Remove the '~' from advisor name for file linking
-                                const advisorFileName = advisor;
-                                
-                                const tr = document.createElement('tr');
-                                
-                                tr.innerHTML = `
-                                    <td>${index}</td>
-                                    <td>${advisor}</td>
-                                    <td>${treeSize}</td>
-                                    <td>${treeDepth}</td>
-                                    <td><a href="data/visualizations/${advisorFileName}_tree.html">View Tree</a></td>
-                                `;
-                                
-                                tableBody.appendChild(tr);
-                            }
-                        });
-                    });
-            </script>
+        <tbody id="tableBody">
+            <!-- Table rows will be dynamically added here -->
         </tbody>
     </table>
+
+    <script>
+        // Function to parse CSV row
+        function parseCSVRow(row) {
+            // Trim the row and split by '**'
+            const parts = row.trim().split('**');
+            
+            if (parts.length >= 4) {
+                const index = parts[0];
+                const advisor = parts[1];
+                const treeSize = parts[2];
+                const treeDepth = parts[3];
+                
+                return { advisor, treeSize, treeDepth };
+            }
+            return null;
+        }
+
+        // Fetch and parse CSV
+        fetch('data/phd_advisor_tree.csv')
+            .then(response => response.text())
+            .then(data => {
+                const tableBody = document.getElementById('tableBody');
+                
+                // Split by line and skip the header if needed
+                const rows = data.split('\n').slice(1);
+                
+                rows.forEach(row => {
+                    const parsedRow = parseCSVRow(row);
+                    
+                    if (parsedRow) {
+                        // Remove '~' from advisor name for file linking
+                        const advisorFileName = parsedRow.advisor;
+                        
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${parsedRow.advisor}</td>
+                            <td>${parsedRow.treeSize}</td>
+                            <td>${parsedRow.treeDepth}</td>
+                            <td><a href="data/visualizations/${advisorFileName}_tree.html">View Tree</a></td>
+                        `;
+                        
+                        tableBody.appendChild(tr);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error loading CSV:', error);
+            });
+    </script>
 </body>
 </html>
