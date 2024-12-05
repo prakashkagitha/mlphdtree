@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhD Advisor Tree</title>
+    <title>PhD Advisor Research Tree</title>
     <style>
         table { 
             width: 100%; 
@@ -20,6 +20,7 @@
     <table id="advisorTable">
         <thead>
             <tr>
+                <th>Index</th>
                 <th>Senior Advisor</th>
                 <th>Tree Size</th>
                 <th>Tree Depth</th>
@@ -37,14 +38,20 @@
                         
                         rows.forEach(row => {
                             if (row.trim()) {
-                                const [advisor, treeSize, treeDepth] = row.split(',');
+                                // Split the row, accounting for the index column
+                                const [index, advisor, treeSize, treeDepth] = row.split('\t');
+                                
+                                // Remove the '~' from advisor name for file linking
+                                const advisorFileName = advisor;
+                                
                                 const tr = document.createElement('tr');
                                 
                                 tr.innerHTML = `
+                                    <td>${index}</td>
                                     <td>${advisor}</td>
                                     <td>${treeSize}</td>
                                     <td>${treeDepth}</td>
-                                    <td><a href="data/visualizations/${advisor}_tree.html">View Tree</a></td>
+                                    <td><a href="data/visualizations/${advisorFileName}_tree.html">View Tree</a></td>
                                 `;
                                 
                                 tableBody.appendChild(tr);
