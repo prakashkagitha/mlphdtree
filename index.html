@@ -26,59 +26,32 @@
                 <th>Visualization</th>
             </tr>
         </thead>
-        <tbody id="tableBody">
-            <!-- Table rows will be dynamically added here -->
+        <tbody>
+            <script>
+                // Fetch and populate JSON data
+                fetch('data/phd_advisor_tree.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tableBody = document.querySelector('#advisorTable tbody');
+                        
+                        data.forEach(row => {
+                            const tr = document.createElement('tr');
+                            
+                            tr.innerHTML = `
+                                <td>${row['Senior Advisor']}</td>
+                                <td>${row['Tree Size']}</td>
+                                <td>${row['Tree Depth']}</td>
+                                <td><a href="data/visualizations/${row['Senior Advisor']}_tree.html">View Tree</a></td>
+                            `;
+                            
+                            tableBody.appendChild(tr);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading the JSON file:', error);
+                    });
+            </script>
         </tbody>
     </table>
-
-    <script>
-        // Function to parse CSV row
-        function parseCSVRow(row) {
-            // Trim the row and split by '**'
-            const parts = row.trim().split('**');
-            
-            if (parts.length >= 4) {
-                const index = parts[0];
-                const advisor = parts[1];
-                const treeSize = parts[2];
-                const treeDepth = parts[3];
-                
-                return { advisor, treeSize, treeDepth };
-            }
-            return null;
-        }
-
-        // Fetch and parse CSV
-        fetch('data/phd_advisor_tree.csv')
-            .then(response => response.text())
-            .then(data => {
-                const tableBody = document.getElementById('tableBody');
-                
-                // Split by line and skip the header if needed
-                const rows = data.split('\n').slice(1);
-                
-                rows.forEach(row => {
-                    const parsedRow = parseCSVRow(row);
-                    
-                    if (parsedRow) {
-                        // Remove '~' from advisor name for file linking
-                        const advisorFileName = parsedRow.advisor;
-                        
-                        const tr = document.createElement('tr');
-                        tr.innerHTML = `
-                            <td>${parsedRow.advisor}</td>
-                            <td>${parsedRow.treeSize}</td>
-                            <td>${parsedRow.treeDepth}</td>
-                            <td><a href="data/visualizations/${advisorFileName}_tree.html">View Tree</a></td>
-                        `;
-                        
-                        tableBody.appendChild(tr);
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error loading CSV:', error);
-            });
-    </script>
 </body>
 </html>
